@@ -2,6 +2,9 @@
 
 ##IMPORTANT REMINDER: When writing code your only goal is to PERFECTLY match the designs within Figma. It is crucial that we maintain a pixel-perfect recreation to the best of our abilities.
 
+##Figma Dev Notes:
+DEV NOTE: Please incorporate the min and max width and height values used throughout the design into your build.
+
 ##Figma MCP Guidelines:
 
 - The Figma Dev Mode MCP Server provides an assets endpoint which can serve image and SVG assets

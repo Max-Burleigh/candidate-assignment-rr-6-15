@@ -119,6 +119,8 @@
   align-items: center;
   justify-content: center;
   min-height: 577px;
+  min-width: 400px;
+  max-width: 550px;
 }
 
 
@@ -201,7 +203,6 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  align-self: stretch;
   margin: 0 auto;
 }
 
@@ -237,9 +238,9 @@
 
 .faq-question {
   display: flex;
+  padding: 0px 10px;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
   cursor: pointer;
 }
 
