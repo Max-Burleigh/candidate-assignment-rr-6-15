@@ -1,0 +1,262 @@
+/* ==========================================
+   SECTIONS.CSS
+   Page-specific sections and layouts
+   ========================================== */
+
+/* Top Banner */
+.top-banner {
+  background-color: var(--green-dark-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 27px;
+}
+
+.top-banner p {
+  flex: 1 0 0;
+  color: var(--rr-white, #fff);
+  text-align: center;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+/* Header */
+.main-header {
+  background-color: var(--white);
+  padding: 12.5px 0;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url("../Images/HP Hero_DESKTOP.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 27px;
+}
+
+.hero-content {
+  max-width: 450px;
+  margin-left: 60px;
+}
+
+.hero h1 {
+  font-family: "Century Old Style Std", serif;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 62px;
+  color: var(--green-primary);
+  margin-bottom: 26px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-size: 19px;
+  line-height: 29px;
+  color: var(--black);
+  margin-bottom: 34px;
+  max-width: 380px;
+}
+
+/* Featured In Section */
+.featured-in {
+  background-color: var(--green-primary);
+  padding: 40px 0 60px;
+  text-align: center;
+}
+
+.featured-in h2 {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.48px;
+  margin-bottom: 27px;
+}
+
+/* Product Section */
+.product-section {
+  background-color: var(--white);
+  padding: 60px 0;
+}
+
+.product-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 1px solid var(--green-primary);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-image {
+  flex: 0 0 550px;
+  position: relative;
+  background-color: var(--gray-light);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 577px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-info {
+  flex: 1;
+  padding: 40px 80px;
+}
+
+.product-info .btn-primary {
+  width: 100%;
+}
+
+.product-info h2 {
+  font-family: "Century Old Style Std", serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--green-primary);
+  margin-bottom: 12px;
+}
+
+.product-description {
+  font-size: 19px;
+  line-height: 29px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+/* Scrolling Banner */
+.scrolling-banner {
+  background-color: var(--green-primary);
+  color: var(--white);
+  padding: 24px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-content {
+  display: inline-flex;
+  padding-left: 100%;
+}
+
+.scrolling-content span {
+  font-family: "Century Old Style Std", serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 34px;
+  margin-right: 60px;
+  white-space: nowrap;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: var(--white);
+  padding: 60px 0;
+}
+
+.faq-section h2 {
+  font-family: "Century Old Style Std", serif;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.2;
+  color: var(--green-dark);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-list {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-top: 1px solid #000000;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid #000000;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 10px;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--green-primary);
+}
+
+.faq-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--green-primary);
+  transition: transform 0.3s ease;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 90px 0 10px;
+  /* Animate both height and padding for smoother open/close */
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  /* Large enough value to fit tallest expected answer */
+  max-height: 400px;
+  padding: 0 90px 26px 10px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer p {
+  font-size: 19px;
+  line-height: 29px;
+  color: var(--black);
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--green-dark-hover);
+  padding: 40px 0;
+  text-align: center;
+}

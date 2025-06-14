@@ -1,0 +1,82 @@
+/* ==========================================
+   RESPONSIVE.CSS
+   All media queries organized by breakpoint
+   ========================================== */
+
+/* ---- Tablet (1024px and below) ---- */
+@media (max-width: 1024px) {
+    .hero-inner {
+        padding: 40px 27px;
+    }
+    
+    .hero-content {
+        margin-left: 0;
+    }
+    
+    .product-grid {
+        flex-direction: column;
+    }
+    
+    .product-image {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .product-info {
+        padding: 40px;
+    }
+}
+
+/* ---- Mobile (768px and below) ---- */
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('../Images/HP Hero_MOBILE.jpg');
+        min-height: 500px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+    
+    .hero-inner {
+        padding: 40px 20px;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-left: 0;
+    }
+    
+    .logos-grid {
+        gap: 20px;
+    }
+    
+    .logos-grid img {
+        height: 24px;
+    }
+    
+    .product-info {
+        padding: 30px 20px;
+    }
+    
+    .product-info h2 {
+        font-size: 32px;
+    }
+    
+    .faq-section h2 {
+        font-size: 36px;
+    }
+    
+    .faq-answer {
+        font-size: 16px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px 10px;
+    }
+    
+    .price-options {
+        flex-direction: column;
+    }
+}

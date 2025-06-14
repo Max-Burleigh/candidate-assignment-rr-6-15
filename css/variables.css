@@ -1,0 +1,29 @@
+/* ==========================================
+   VARIABLES.CSS
+   CSS custom properties and design tokens
+   ========================================== */
+
+:root {
+  /* Figma Design System Colors - Exact naming from Figma */
+  --rr-white: #ffffff;
+  --rr-green-current-web: #004943;
+  --rr-bright-chartreuse: #ebff9d;
+  --button-hover-green: #002e29;
+
+  /* Legacy/Additional Colors */
+  --white: #ffffff; /* Keep for backward compatibility */
+  --green-dark-hover: #002e29;
+  --green-primary: #004943;
+  --green-dark: #063d35;
+  --chartreuse: #ebff9d;
+  --black: #2d2926;
+  --gray-light: #f8f8f8;
+  --purple-border: #974fff;
+
+  /* Layout */
+  --max-width: 1400px;
+
+  /* Typography - Figma font specifications */
+  --font-family-primary: "Poppins", sans-serif;
+  --font-family-serif: "Century Old Style Std", serif;
+}
