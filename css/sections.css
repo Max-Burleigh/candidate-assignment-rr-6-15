@@ -113,7 +113,7 @@
 .product-image {
   flex: 0 0 550px;
   position: relative;
-  background-color: var(--gray-light);
+  background: url("../Images/PDP Thumbnails_Thumb 1_60mg Multifunctional FS Gummes.jpg") lightgray 50% / cover no-repeat;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -121,10 +121,6 @@
   min-height: 577px;
 }
 
-.product-image img {
-  max-width: 100%;
-  height: auto;
-}
 
 .product-info {
   flex: 1;
