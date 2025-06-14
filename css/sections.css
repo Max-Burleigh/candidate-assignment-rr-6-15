@@ -34,7 +34,7 @@
 
 /* Hero Section */
 .hero {
-  background-image: url("../Images/HP Hero_DESKTOP.jpg");
+  background-image: url("../images/HP Hero_DESKTOP.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -113,7 +113,7 @@
 .product-image {
   flex: 0 0 550px;
   position: relative;
-  background: url("../Images/PDP Thumbnails_Thumb 1_60mg Multifunctional FS Gummes.jpg") lightgray 50% / cover no-repeat;
+  background: url("../images/PDP Thumbnails_Thumb 1_60mg Multifunctional FS Gummes.jpg") lightgray 50% / cover no-repeat;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -183,7 +183,7 @@
   font-family: "Century Old Style Std", serif;
   font-weight: 700;
   font-size: 52px;
-  line-height: 1.2;
+  line-height: normal;
   color: var(--green-dark);
   text-align: center;
   margin-bottom: 40px;
@@ -192,6 +192,7 @@
 .faq-list {
   max-width: 1380px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .faq-item {
@@ -214,6 +215,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 19px;
+  line-height: normal;
   color: var(--green-primary);
 }
 
@@ -232,7 +234,7 @@
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  padding: 0 90px 0 10px;
+  padding: 0 80px 0 10px;
   /* Animate both height and padding for smoother open/close */
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
@@ -240,7 +242,7 @@
 .faq-item.active .faq-answer {
   /* Large enough value to fit tallest expected answer */
   max-height: 400px;
-  padding: 0 90px 26px 10px;
+  padding: 0 80px 22px 10px;
 }
 
 .faq-item.active .faq-icon {
@@ -249,7 +251,7 @@
 
 .faq-answer p {
   font-size: 19px;
-  line-height: 29px;
+  line-height: normal;
   color: var(--black);
 }
 

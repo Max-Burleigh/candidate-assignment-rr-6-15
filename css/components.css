@@ -202,8 +202,10 @@
 }
 
 .footer-logo {
-  height: 60px;
-  width: auto;
+  width: 239px;
+  height: 150px;
+  flex-shrink: 0;
+  aspect-ratio: 239/150;
   filter: brightness(0) invert(1);
 }
 

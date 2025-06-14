@@ -30,7 +30,7 @@
 /* ---- Mobile (768px and below) ---- */
 @media (max-width: 768px) {
     .hero {
-        background-image: url('../Images/HP Hero_MOBILE.jpg');
+        background-image: url('../images/HP Hero_MOBILE.jpg');
         min-height: 500px;
     }
     
