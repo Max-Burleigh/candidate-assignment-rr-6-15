@@ -135,9 +135,25 @@
   font-family: "Century Old Style Std", serif;
   font-weight: 700;
   font-size: 40px;
-  line-height: 48px;
+  line-height: 40px;
   color: var(--green-primary);
   margin-bottom: 12px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.product-rating .reviews-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--green-primary);
+  white-space: nowrap;
 }
 
 .product-description {
@@ -176,38 +192,54 @@
 /* FAQ Section */
 .faq-section {
   background-color: var(--white);
-  padding: 60px 0;
+  padding: 60px 27px;
+}
+
+.faq-content-wrapper {
+  display: flex;
+  max-width: 1380px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  align-self: stretch;
+  margin: 0 auto;
 }
 
 .faq-section h2 {
   font-family: "Century Old Style Std", serif;
   font-weight: 700;
   font-size: 52px;
-  line-height: normal;
+  line-height: 62px;
   color: var(--green-dark);
   text-align: center;
-  margin-bottom: 40px;
+  margin: 0;
 }
 
 .faq-list {
-  max-width: 1380px;
-  margin: 0 auto;
-  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  align-self: stretch;
 }
 
 .faq-item {
-  border-top: 1px solid #000000;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 
-.faq-item:last-child {
-  border-bottom: 1px solid #000000;
+.faq-item-separator {
+  height: 1px;
+  background-color: #000000;
+  width: 100%;
 }
 
 .faq-question {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 26px 10px;
+  padding: 0 10px;
   cursor: pointer;
 }
 
@@ -220,29 +252,26 @@
 }
 
 .faq-icon {
-  font-size: 20px;
-  line-height: 1;
-  color: var(--green-primary);
-  transition: transform 0.3s ease;
   width: 15px;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 14.128px;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon path {
+  stroke: var(--green-primary);
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  padding: 0 80px 0 10px;
-  /* Animate both height and padding for smoother open/close */
+  padding: 0;
+  margin: 0;
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .faq-item.active .faq-answer {
-  /* Large enough value to fit tallest expected answer */
   max-height: 400px;
-  padding: 0 80px 22px 10px;
+  padding: 26px 80px 0 0;
 }
 
 .faq-item.active .faq-icon {
@@ -250,9 +279,13 @@
 }
 
 .faq-answer p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   font-size: 19px;
   line-height: normal;
   color: var(--black);
+  margin: 0;
+  padding: 0 0 0 10px;
 }
 
 /* Footer */

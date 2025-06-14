@@ -3,16 +3,12 @@ function toggleFAQ(index) {
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach((item, i) => {
-    const icon = item.querySelector(".faq-icon");
-
     if (i === index) {
       // Toggle the clicked item
       item.classList.toggle("active");
-      icon.textContent = item.classList.contains("active") ? "×" : "+";
     } else {
       // Ensure all other items are closed
       item.classList.remove("active");
-      icon.textContent = "+";
     }
   });
 }
@@ -103,10 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const firstFAQ = document.querySelector(".faq-item");
   if (firstFAQ) {
     firstFAQ.classList.add("active");
-    const icon = firstFAQ.querySelector(".faq-icon");
-    if (icon) {
-      icon.textContent = "×";
-    }
   }
 });
 
