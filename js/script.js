@@ -66,12 +66,32 @@ function initScrollingBanner() {
   const scrollingContent = document.querySelector(".scrolling-content");
   if (!scrollingContent) return;
 
-  // Clone the original content multiple times for seamless scrolling
+  // Store single set HTML
   const originalContent = scrollingContent.innerHTML;
 
-  // Add 3 more copies (total of 4 sets) for smooth infinite scroll
-  scrollingContent.innerHTML =
-    originalContent + originalContent + originalContent + originalContent;
+  // Duplicate the content until it spans at least (viewport width + one extra set)
+  const viewportWidth = window.innerWidth;
+  let currentCopies = 1; // already have one copy (original)
+  while (
+    scrollingContent.scrollWidth <
+    viewportWidth + scrollingContent.scrollWidth / currentCopies
+  ) {
+    scrollingContent.innerHTML += originalContent;
+    currentCopies += 1;
+  }
+
+  // After DOM updates, measure the width of a single set and store it in a CSS variable
+  requestAnimationFrame(() => {
+    // Width of a single set is total width divided by number of copies
+    const totalWidth = scrollingContent.scrollWidth;
+    const singleWidth = totalWidth / currentCopies;
+
+    scrollingContent.style.setProperty("--scroll-width", `${singleWidth}px`);
+
+    const desiredSpeed = 100; // pixels per second
+    const duration = singleWidth / desiredSpeed; // seconds
+    scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
+  });
 }
 
 // Smooth Scroll for Anchor Links
