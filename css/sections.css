@@ -158,11 +158,13 @@
   padding: 24px 0;
   overflow: hidden;
   white-space: nowrap;
+  position: relative;
 }
 
 .scrolling-content {
   display: inline-flex;
-  padding-left: 100%;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .scrolling-content span {
@@ -172,6 +174,7 @@
   line-height: 34px;
   margin-right: 60px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* FAQ Section */

@@ -65,8 +65,24 @@ function shopNow() {
   });
 }
 
+// Initialize Infinite Scrolling Banner
+function initScrollingBanner() {
+  const scrollingContent = document.querySelector(".scrolling-content");
+  if (!scrollingContent) return;
+
+  // Clone the original content multiple times for seamless scrolling
+  const originalContent = scrollingContent.innerHTML;
+
+  // Add 3 more copies (total of 4 sets) for smooth infinite scroll
+  scrollingContent.innerHTML =
+    originalContent + originalContent + originalContent + originalContent;
+}
+
 // Smooth Scroll for Anchor Links
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize infinite scrolling banner
+  initScrollingBanner();
+
   // Add smooth scrolling to all links
   const links = document.querySelectorAll('a[href^="#"]');
 
