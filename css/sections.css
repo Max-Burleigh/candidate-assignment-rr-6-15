@@ -148,6 +148,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
   margin: 0 auto;
 }
 
@@ -161,17 +163,19 @@
 }
 
 .product-image {
-  flex: 0 0 550px;
+  display: flex;
+  width: 550px;
+  min-width: 400px;
+  max-width: 550px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
   position: relative;
   background: url("../images/PDP Thumbnails_Thumb 1_60mg Multifunctional FS Gummes.jpg")
     lightgray 50% / cover no-repeat;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 577px;
-  min-width: 400px;
-  max-width: 550px;
 }
 
 .product-info {
@@ -208,6 +212,20 @@
   align-items: flex-start;
   gap: 20px;
   align-self: stretch;
+}
+
+.product-title-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.product-description-benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .product-info h2 {

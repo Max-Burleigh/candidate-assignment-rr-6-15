@@ -34,7 +34,6 @@ This is a job candidate assignment for 5280 Brands to recreate a Figma design as
      - Updated scrolling banner typography
      - Improved responsive breakpoints
      - **Product Section Refinements:**
-       - Added "EXTRA STRENGTH" badge with checkmark icon
        - Fixed price button widths to be equal (flex: 1)
        - Made Shop Now button full width in product section
        - Removed all creative effects (no lift, shadows, or transitions beyond color)
