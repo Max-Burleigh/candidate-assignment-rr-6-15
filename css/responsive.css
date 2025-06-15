@@ -48,18 +48,65 @@
     min-width: 150px;
   }
 
-  /* Product Section Tablet */
+  /* Product Section Tablet Complete Enhancement */
+  .product-container {
+    padding: 50px 30px;
+  }
+
   .product-grid {
     flex-direction: column;
+    padding: 15px;
+    gap: 20px;
   }
 
   .product-image {
-    flex: 1;
+    flex: none;
     width: 100%;
+    min-width: unset;
+    max-width: unset;
+    min-height: 450px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #F1F5F4;
   }
 
   .product-info {
-    padding: 40px;
+    max-width: none;
+    padding: 30px 40px;
+    gap: 35px;
+  }
+
+  .product-info h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .product-description {
+    width: auto;
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .product-details-group {
+    gap: 25px;
+  }
+
+  .product-buttons-group {
+    gap: 18px;
+  }
+
+  .price-options {
+    gap: 12px;
+  }
+
+  .price-btn {
+    padding: 14px 20px;
+  }
+
+  .benefits-list span {
+    font-size: 17px;
+    line-height: 26px;
   }
 }
 
@@ -75,6 +122,41 @@
   
   .logos-grid img {
     flex-shrink: 0;
+  }
+}
+
+/* ---- Medium Desktop (1025px to 1300px) - Intermediate Scaling ---- */
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .product-container {
+    padding: 55px 30px;
+    max-width: 1200px;
+  }
+
+  .product-grid {
+    padding: 18px;
+  }
+
+  .product-image {
+    width: 480px;
+    min-width: 380px;
+    max-width: 480px;
+    min-height: 480px;
+  }
+
+  .product-info {
+    max-width: 520px;
+    padding: 20px 60px;
+  }
+
+  .product-info h2 {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .product-description {
+    width: 380px;
+    font-size: 18px;
+    line-height: 27px;
   }
 }
 
@@ -194,7 +276,7 @@
 
   .logos-grid {
     position: relative;
-    height: 24px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,7 +284,8 @@
 
   .logos-grid img {
     position: absolute;
-    height: 24px;
+    max-height: 44px;
+    width: auto;
     opacity: 0;
     animation: logoFade 24s infinite; /* 3 seconds per logo × 8 logos */
   }
@@ -267,9 +350,10 @@
     min-width: unset;
     max-width: unset;
     min-height: 350px;
-    background-size: cover;
-    background-color: transparent;
-    background-position: center top;
+    background-size: contain;
+    background-color: #F1F5F4;
+    background-position: center center;
+    background-repeat: no-repeat;
     padding: 0;
     margin: 0;
   }
@@ -298,6 +382,13 @@
   .price-btn {
     width: 100%;
     padding: 16px 20px;
+  }
+
+  /* Medium Mobile Screens - Enhanced Image Display (480px-768px) */
+  @media (min-width: 480px) {
+    .product-image {
+      min-height: 420px;
+    }
   }
 
   /* FAQ Section Mobile Layout */
