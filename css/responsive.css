@@ -63,6 +63,21 @@
   }
 }
 
+/* ---- Medium Desktop/Tablet - Featured In Horizontal Scroll ---- */
+@media (min-width: 769px) and (max-width: 1400px) {
+  .logos-grid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    padding: 0 20px;
+    scrollbar-width: thin;
+  }
+  
+  .logos-grid img {
+    flex-shrink: 0;
+  }
+}
+
 /* ---- Mobile (768px and below) ---- */
 @media (max-width: 768px) {
   /* Header Height Reduction */
