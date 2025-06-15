@@ -73,6 +73,33 @@ This is a job candidate assignment for 5280 Brands to recreate a Figma design as
 - **Vanilla JavaScript**: No dependencies, clean event handling
 - **Assets**: All images and fonts provided locally
 
+## Font Configuration (CRITICAL)
+
+**⚠️ IMPORTANT: Font Weight Mappings**
+
+The project uses specific font weight mappings that are crucial for matching Figma designs exactly:
+
+### Poppins Font Weights:
+- `font-weight: 300` → `Poppins-Light.ttf`
+- `font-weight: 400` → `Poppins-Regular.ttf` ✅ **CRITICAL: Must use Regular, not Light**
+- `font-weight: 500` → `Poppins-Medium.ttf`
+- `font-weight: 700` → `Poppins-ExtraBold.ttf`
+
+### Century Old Style Font Weights:
+- `font-weight: 400` (normal) → `CenturyOldStyleRegular`
+- `font-weight: 400` (italic) → `CenturyOldStyleItalic`
+- `font-weight: 700` (bold) → `CenturyOldStyleBold`
+
+### Font Rendering Optimization:
+- All fonts use `font-display: swap` for performance
+- Hero description uses `text-rendering: optimizeLegibility` for precise text wrapping
+- **Text Wrapping**: Hero description width is exactly 343px to achieve proper line breaks matching Figma
+
+**Font Issues Solved:**
+- ✅ Hero text wrapping now matches Figma exactly (line breaks: "can" | "help...mood," | "and...")
+- ✅ Button text weight corrected from thick to proper Regular weight
+- ✅ All font weights properly mapped to correct font files
+
 ## Code Quality Standards
 
 1. **No external dependencies** - Pure HTML/CSS/JS
@@ -166,4 +193,4 @@ Currently no build process - pure static files. To run locally:
 
 ---
 
-_Last Updated: June 14, 2025 - Hero section and announcement bar refined for pixel-perfect Figma match_
+_Last Updated: June 15, 2025 - Critical font configuration documented and text rendering issues resolved_

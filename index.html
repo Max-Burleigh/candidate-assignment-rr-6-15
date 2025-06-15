@@ -65,89 +65,8 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="rating">
-            <div class="stars">
-              <img src="images/star.svg" alt="Star" />
-              <img src="images/star.svg" alt="Star" />
-              <img src="images/star.svg" alt="Star" />
-              <img src="images/star.svg" alt="Star" />
-              <img src="images/star.svg" alt="Star" />
-            </div>
-            <span>Over 50,000 happy customers</span>
-          </div>
-          <h1>Rest, relieve, recover, relax, <em>repeat.</em></h1>
-          <p class="hero-description">
-            An all-natural solution that can help relieve aches, regulate mood,
-            and get a better night's sleep.
-          </p>
-          <button class="btn-primary" onclick="shopNow()">SHOP NOW</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured In Section -->
-    <section class="featured-in">
-      <div class="container">
-        <h2>FEATURED IN</h2>
-        <div class="logos-grid">
-          <img
-            src="images/Featured In Logos/Healthline.svg"
-            alt="Healthline"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/LA Weekly.svg"
-            alt="LA Weekly"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Forbes.svg"
-            alt="Forbes"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Shape.svg"
-            alt="Shape"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Yahoo.svg"
-            alt="Yahoo"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Popular Science.svg"
-            alt="Popular Science"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Discover.svg"
-            alt="Discover"
-            loading="lazy"
-          />
-          <img
-            src="images/Featured In Logos/Health.svg"
-            alt="Health"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Section -->
-    <section class="product-section">
-      <div class="container">
-        <div class="product-grid">
-          <div class="product-image">
-            <div class="save-badge">Save 20%</div>
-          </div>
-          <div class="product-info">
-            <div class="extra-strength-badge">
-              <img src="images/check mark.svg" alt="Check" class="badge-icon" />
-              <span>EXTRA STRENGTH</span>
-            </div>
-            <h2>Multifunctional Gummies</h2>
-            <div class="product-rating">
+          <div class="hero-text-content">
+            <div class="rating">
               <div class="stars">
                 <img src="images/star.svg" alt="Star" />
                 <img src="images/star.svg" alt="Star" />
@@ -155,45 +74,128 @@
                 <img src="images/star.svg" alt="Star" />
                 <img src="images/star.svg" alt="Star" />
               </div>
-              <span class="reviews-text">188 Reviews</span>
+              <span>Over 50,000 happy customers</span>
             </div>
-            <p class="product-description">
-              Live clear, comfortable, and sleep well at night with this
-              delicious fan-favorite.
+            <h1>Rest, relieve, recover, relax, <em>repeat.</em></h1>
+            <p class="hero-description">
+              An all-natural solution that can help relieve aches, regulate mood,
+              and get a better night's sleep.
             </p>
-            <ul class="benefits-list">
-              <li>
-                <img src="images/check mark.svg" alt="Check" />
-                <span>Reduce body aches and pains</span>
-              </li>
-              <li>
-                <img src="images/check mark.svg" alt="Check" />
-                <span>Enhances mental clarity and focus</span>
-              </li>
-              <li>
-                <img src="images/check mark.svg" alt="Check" />
-                <span>Induces a deeper, restorative sleep</span>
-              </li>
-            </ul>
-            <div class="price-options">
-              <button
-                class="price-btn active"
-                id="regular-price"
-                onclick="selectPrice('regular')"
-              >
-                <span class="price-label">Regular Price</span>
-                <span class="price-amount">$55</span>
-              </button>
-              <button
-                class="price-btn"
-                id="subscribe-price"
-                onclick="selectPrice('subscribe')"
-              >
-                <span class="price-label">Subscribe & Save 20%</span>
-                <span class="price-amount">$44</span>
-              </button>
+          </div>
+          <button class="btn-primary" onclick="shopNow()">SHOP NOW</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured In Section -->
+    <section class="featured-in">
+      <h2>FEATURED IN</h2>
+      <div class="logos-grid">
+        <img
+          src="images/Featured In Logos/Healthline.svg"
+          alt="Healthline"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/LA Weekly.svg"
+          alt="LA Weekly"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Shape.svg"
+          alt="Shape"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Forbes.svg"
+          alt="Forbes"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Yahoo.svg"
+          alt="Yahoo"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Popular Science.svg"
+          alt="Popular Science"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Discover.svg"
+          alt="Discover"
+          loading="lazy"
+        />
+        <img
+          src="images/Featured In Logos/Health.svg"
+          alt="Health"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+      <div class="product-container">
+        <div class="product-grid">
+          <div class="product-image">
+            <div class="save-badge">Save 20%</div>
+          </div>
+          <div class="product-info">
+            <div class="product-content-wrapper">
+              <div class="product-details-group">
+                <h2>Multifunctional Gummies</h2>
+                <div class="product-rating">
+                  <div class="stars">
+                    <img src="images/star.svg" alt="Star" />
+                    <img src="images/star.svg" alt="Star" />
+                    <img src="images/star.svg" alt="Star" />
+                    <img src="images/star.svg" alt="Star" />
+                    <img src="images/star.svg" alt="Star" />
+                  </div>
+                  <span class="reviews-text">188 Reviews</span>
+                </div>
+                <p class="product-description">
+                  Live clear, comfortable, and sleep well at night with this
+                  delicious fan-favorite.
+                </p>
+                <ul class="benefits-list">
+                  <li>
+                    <img src="images/check mark.svg" alt="Check" />
+                    <span>Reduce body aches and pains</span>
+                  </li>
+                  <li>
+                    <img src="images/check mark.svg" alt="Check" />
+                    <span>Enhances mental clarity and focus</span>
+                  </li>
+                  <li>
+                    <img src="images/check mark.svg" alt="Check" />
+                    <span>Induces a deeper, restorative sleep</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="product-buttons-group">
+                <div class="price-options">
+                  <button
+                    class="price-btn active"
+                    id="regular-price"
+                    onclick="selectPrice('regular')"
+                  >
+                    <span class="price-label">Regular Price</span>
+                    <span class="price-amount">$55</span>
+                  </button>
+                  <button
+                    class="price-btn"
+                    id="subscribe-price"
+                    onclick="selectPrice('subscribe')"
+                  >
+                    <span class="price-label">Subscribe & Save 20%</span>
+                    <span class="price-amount">$44</span>
+                  </button>
+                </div>
+                <button class="btn-primary" onclick="shopNow()">SHOP NOW</button>
+              </div>
             </div>
-            <button class="btn-primary" onclick="shopNow()">SHOP NOW</button>
           </div>
         </div>
       </div>

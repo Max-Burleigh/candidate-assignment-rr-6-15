@@ -4,14 +4,14 @@
    ========================================== */
 
 :root {
-  /* Figma Design System Colors - Exact naming from Figma */
+  /* Figma System Colors */
   --rr-white: #ffffff;
   --rr-green-current-web: #004943;
   --rr-bright-chartreuse: #ebff9d;
   --button-hover-green: #002e29;
 
-  /* Legacy/Additional Colors */
-  --white: #ffffff; /* Keep for backward compatibility */
+  /* Additional Colors */
+  --white: #ffffff;
   --green-dark-hover: #002e29;
   --green-primary: #004943;
   --green-dark: #063d35;
@@ -21,7 +21,7 @@
   --purple-border: #974fff;
 
   /* Layout */
-  --max-width: 1400px;
+  --max-width: 1432px;
 
   /* Typography - Figma font specifications */
   --font-family-primary: "Poppins", sans-serif;
