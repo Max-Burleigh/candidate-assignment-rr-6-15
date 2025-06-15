@@ -197,8 +197,10 @@
 
 /* Logo Styles */
 .logo {
+  width: 72px;
   height: 45px;
-  width: auto;
+  flex-shrink: 0;
+  aspect-ratio: 8/5;
 }
 
 .footer-logo {
