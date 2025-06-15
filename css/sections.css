@@ -281,6 +281,12 @@
   overflow: hidden;
   white-space: nowrap;
   position: relative;
+  height: 82px; /* ensures banner retains height despite absolute children */
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .scrolling-content {

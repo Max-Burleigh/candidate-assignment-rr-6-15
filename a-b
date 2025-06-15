@@ -1,0 +1,37 @@
+Testable Hypothesis
+
+Problem: The current hero section, while visually appealing, occupies significant vertical space. On many common device resolutions, particularly mobile and smaller laptops, this height pushes the “Featured In” logos—a key third-party trust signal for new visitors—below the initial viewport (the “fold”). Users arriving from paid ads, who may have low brand familiarity, are not immediately seeing one of our strongest credibility assets.
+
+Hypothesis: By making subtle, targeted reductions to the vertical height of the hero section, we can pull the “Featured In” logos into the initial viewport for a majority of users. This immediate exposure to social proof will reduce user hesitation and bounce rate, leading to increased engagement and a higher conversion rate.
+
+I would experiment with varying heights and use A/B testing to determine if allowing the “Featured In” logos to be present above the fold on mobile would result in lower bounce rates. Currently on mobile, I’ve designed it in such a way that the Featured In logos would almost never appear above the fold, as I was trying to mimic the current R&R homepage design. It may be that we find out that having those above the fold has no impact, in which case, I would then move onto other ideas.
+
+**Control (A) - On a common screen size:**
+
+```
++----------------------------------+
+|                                  |
+|         [Hero Section]           |
+|     (H1, p, rating, CTA)         |
+|                                  |
+|                                  |
++==================================+  <-- THE FOLD
+|  [Featured In Section - HIDDEN]  |
++----------------------------------+
+```
+
+**Variant (B) - Same screen size:**
+
+```
++----------------------------------+
+|     [Slightly Shorter Hero       |
+|           Section]               |
++----------------------------------+
+|                                  |
+|  [Featured In Section - VISIBLE] |
+|                                  |
++==================================+  <-- THE FOLD
+```
+
+Conclusion:
+Ultimately, it's a matter of theories. We can only hypothesize what the potential problems might be and then we have to A/B test them. If one A/B test is inconclusive, then we move onto other theories. But there are other questions we have to also ask ourselves. Is the page fully functional? Have we tested it thoroughly on various screen sizes, browsers, etc.? Is the page itself fast enough? Is there fundamentally important information that we are missing? There are many more we can come up with, but ultimately, I think the A/B testing will tell the story.

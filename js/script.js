@@ -61,37 +61,115 @@ function shopNow() {
   });
 }
 
-// Initialize Infinite Scrolling Banner
+// Enhanced Infinite Scrolling Banner with Advanced Performance
+// Vanilla JS implementation with enterprise-level optimizations
 function initScrollingBanner() {
   const scrollingContent = document.querySelector(".scrolling-content");
   if (!scrollingContent) return;
 
+  let isVisible = true;
+  let resizeTimer = null;
+
   // Store single set HTML
   const originalContent = scrollingContent.innerHTML;
 
-  // Duplicate the content until it spans at least (viewport width + one extra set)
-  const viewportWidth = window.innerWidth;
-  let currentCopies = 1; // already have one copy (original)
-  while (
-    scrollingContent.scrollWidth <
-    viewportWidth + scrollingContent.scrollWidth / currentCopies
-  ) {
-    scrollingContent.innerHTML += originalContent;
-    currentCopies += 1;
+  // Enhanced setup function with better calculations
+  function setupBanner() {
+    // Reset content to original
+    scrollingContent.innerHTML = originalContent;
+    
+    const viewportWidth = window.innerWidth;
+    let currentCopies = 1;
+    
+    // More robust duplication calculation
+    while (scrollingContent.scrollWidth < viewportWidth * 2) {
+      scrollingContent.innerHTML += originalContent;
+      currentCopies += 1;
+      // Safety break to prevent infinite loops
+      if (currentCopies > 10) break;
+    }
+
+    // Enhanced measurement with multiple RAF calls for stability
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const totalWidth = scrollingContent.scrollWidth;
+        const singleWidth = totalWidth / currentCopies;
+
+        scrollingContent.style.setProperty("--scroll-width", `${singleWidth}px`);
+
+        // Dynamic speed based on screen size for better UX
+        const baseSpeed = window.innerWidth < 768 ? 80 : 100; // Slower on mobile
+        const duration = singleWidth / baseSpeed;
+        scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
+      });
+    });
   }
 
-  // After DOM updates, measure the width of a single set and store it in a CSS variable
-  requestAnimationFrame(() => {
-    // Width of a single set is total width divided by number of copies
-    const totalWidth = scrollingContent.scrollWidth;
-    const singleWidth = totalWidth / currentCopies;
-
-    scrollingContent.style.setProperty("--scroll-width", `${singleWidth}px`);
-
-    const desiredSpeed = 100; // pixels per second
-    const duration = singleWidth / desiredSpeed; // seconds
-    scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
+  // Intersection Observer for performance optimization
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      // Pause animation when not visible to save resources
+      if (!isVisible) {
+        scrollingContent.classList.add('paused');
+      } else {
+        scrollingContent.classList.remove('paused');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '50px'
   });
+
+  observer.observe(scrollingContent.parentElement);
+
+  // Enhanced responsive handling with debouncing
+  function handleResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (isVisible) {
+        setupBanner();
+      }
+    }, 250); // Debounce resize events
+  }
+
+  // Touch event handlers for mobile UX enhancement
+  let touchStartY = 0;
+  function handleTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+  }
+
+  function handleTouchMove(e) {
+    const touchY = e.touches[0].clientY;
+    const deltaY = Math.abs(touchY - touchStartY);
+    
+    // If vertical scroll gesture, temporarily pause for better UX
+    if (deltaY > 10) {
+      scrollingContent.classList.add('paused');
+      setTimeout(() => {
+        if (isVisible) {
+          scrollingContent.classList.remove('paused');
+        }
+      }, 1000);
+    }
+  }
+
+  // Event listeners with passive flags for better performance
+  window.addEventListener('resize', handleResize, { passive: true });
+  scrollingContent.addEventListener('touchstart', handleTouchStart, { passive: true });
+  scrollingContent.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+  // Initial setup
+  setupBanner();
+
+  // Return cleanup function for potential future use
+  return () => {
+    observer.disconnect();
+    window.removeEventListener('resize', handleResize);
+    scrollingContent.removeEventListener('touchstart', handleTouchStart);
+    scrollingContent.removeEventListener('touchmove', handleTouchMove);
+    clearTimeout(resizeTimer);
+  };
 }
 
 // Smooth Scroll for Anchor Links
