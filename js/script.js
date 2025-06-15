@@ -55,6 +55,14 @@ function shopNow() {
   //     content_category: 'CBD Products'
   // });
 
+  // Shopify Add to Cart
+  // fetch('/cart/add.js', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ id: variantId, quantity: 1 })
+  // }).then(response => response.json())
+  //   .then(data => window.location.href = '/cart');
+
   // For demo purposes, scroll to product section
   document.querySelector(".product-section").scrollIntoView({
     behavior: "smooth",
@@ -77,10 +85,10 @@ function initScrollingBanner() {
   function setupBanner() {
     // Reset content to original
     scrollingContent.innerHTML = originalContent;
-    
+
     const viewportWidth = window.innerWidth;
     let currentCopies = 1;
-    
+
     // More robust duplication calculation
     while (scrollingContent.scrollWidth < viewportWidth * 2) {
       scrollingContent.innerHTML += originalContent;
@@ -95,7 +103,10 @@ function initScrollingBanner() {
         const totalWidth = scrollingContent.scrollWidth;
         const singleWidth = totalWidth / currentCopies;
 
-        scrollingContent.style.setProperty("--scroll-width", `${singleWidth}px`);
+        scrollingContent.style.setProperty(
+          "--scroll-width",
+          `${singleWidth}px`
+        );
 
         // Dynamic speed based on screen size for better UX
         const baseSpeed = window.innerWidth < 768 ? 80 : 100; // Slower on mobile
@@ -106,20 +117,23 @@ function initScrollingBanner() {
   }
 
   // Intersection Observer for performance optimization
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      isVisible = entry.isIntersecting;
-      // Pause animation when not visible to save resources
-      if (!isVisible) {
-        scrollingContent.classList.add('paused');
-      } else {
-        scrollingContent.classList.remove('paused');
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '50px'
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        // Pause animation when not visible to save resources
+        if (!isVisible) {
+          scrollingContent.classList.add("paused");
+        } else {
+          scrollingContent.classList.remove("paused");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "50px",
+    }
+  );
 
   observer.observe(scrollingContent.parentElement);
 
@@ -142,22 +156,26 @@ function initScrollingBanner() {
   function handleTouchMove(e) {
     const touchY = e.touches[0].clientY;
     const deltaY = Math.abs(touchY - touchStartY);
-    
+
     // If vertical scroll gesture, temporarily pause for better UX
     if (deltaY > 10) {
-      scrollingContent.classList.add('paused');
+      scrollingContent.classList.add("paused");
       setTimeout(() => {
         if (isVisible) {
-          scrollingContent.classList.remove('paused');
+          scrollingContent.classList.remove("paused");
         }
       }, 1000);
     }
   }
 
   // Event listeners with passive flags for better performance
-  window.addEventListener('resize', handleResize, { passive: true });
-  scrollingContent.addEventListener('touchstart', handleTouchStart, { passive: true });
-  scrollingContent.addEventListener('touchmove', handleTouchMove, { passive: true });
+  window.addEventListener("resize", handleResize, { passive: true });
+  scrollingContent.addEventListener("touchstart", handleTouchStart, {
+    passive: true,
+  });
+  scrollingContent.addEventListener("touchmove", handleTouchMove, {
+    passive: true,
+  });
 
   // Initial setup
   setupBanner();
@@ -165,9 +183,9 @@ function initScrollingBanner() {
   // Return cleanup function for potential future use
   return () => {
     observer.disconnect();
-    window.removeEventListener('resize', handleResize);
-    scrollingContent.removeEventListener('touchstart', handleTouchStart);
-    scrollingContent.removeEventListener('touchmove', handleTouchMove);
+    window.removeEventListener("resize", handleResize);
+    scrollingContent.removeEventListener("touchstart", handleTouchStart);
+    scrollingContent.removeEventListener("touchmove", handleTouchMove);
     clearTimeout(resizeTimer);
   };
 }
@@ -199,43 +217,3 @@ document.addEventListener("DOMContentLoaded", function () {
     firstFAQ.classList.add("active");
   }
 });
-
-// Tracking Documentation
-/*
-TRACKING IMPLEMENTATION GUIDE:
-
-1. Google Analytics 4 (GA4):
-   - Page View: Automatically tracked when GA4 script is loaded
-   - Shop Now Button Clicks: Tracked as custom events with 'click' action
-   - Price Selection: Tracked as custom events with 'select_price' action
-   
-   To implement in production:
-   - Replace 'GA_MEASUREMENT_ID' with your actual GA4 measurement ID
-   - Uncomment the GA4 script in the <head> section
-   - Uncomment the gtag event calls in the JavaScript functions
-   
-   To validate:
-   - Use Google Tag Assistant Chrome extension
-   - Check Real-Time reports in GA4 dashboard
-   - Verify events in DebugView
-
-2. Meta Pixel:
-   - PageView: Automatically tracked when pixel is loaded
-   - Lead Event: Triggered when "Shop Now" button is clicked
-   
-   To implement in production:
-   - Replace 'YOUR_PIXEL_ID' with your actual Meta Pixel ID
-   - Uncomment the Meta Pixel script in the <head> section
-   - Uncomment the fbq event calls in the JavaScript functions
-   
-   To validate:
-   - Use Meta Pixel Helper Chrome extension
-   - Check Events Manager in Meta Business Suite
-   - Test events using Meta's Event Testing tool
-
-3. Best Practices:
-   - Always test in a staging environment first
-   - Use Google Tag Manager for easier management of multiple tags
-   - Implement proper consent management for GDPR/CCPA compliance
-   - Monitor tracking regularly to ensure data accuracy
-*/

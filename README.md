@@ -2,140 +2,113 @@
 
 ## Project Summary
 
-This project is a pixel-perfect recreation of a high-conversion landing page for R&R's Multifunctional CBD Gummies product. The implementation focuses on clean, semantic HTML, modern CSS techniques, and vanilla JavaScript for interactivity.
+This project is an extremely close replication of the Figma mockup on desktop, with the proper creative liberties taken to ensure responsiveness on tablet and mobile. I mostly copied over exact 1 to 1 div structures from Figma -> code, as well as exact CSS styles I found in dev mode. As an example of my attention to detail, the initial ‘Shop Now’ button has a letter-spacing of exactly 1.12125px such that it will render natively as exactly 145 x 56 pixels whilst still utilizing flex, which quite literally matches the Figma design. However, I wouldn’t normally advise of being this extremely precise, as all of that falls apart the moment a user has any sort of zoom/accessibility settings turned on. In the real-world, it’s smarter to use em/rem units for things of this nature. For the sake of this project however, I took the approach of being a pixel-peeper, but I think in the real-world there are tradeoffs to taking extremely long lengths of time to be exactly that precise. A mix of both is best, to maximize productivity.
+
+## Tech Stack:
+
+HTML
+
+CSS
+
+JS (including completely vanilla implementation for scrolling banner).
+
+\*Note: I know that the Slick library is used on the scrolling banner on the actual website, but for the sake of the project and to show technical capability, I opted for vanilla JS. Slick is highly robust though, and probably a much better implementation.
 
 ## Live Preview
 
-[Deploy this project to view live preview - instructions below]
-
-## Technical Approach
-
-### Structure
-
-- **HTML5**: Semantic markup with proper meta tags and SEO optimization
-- **CSS3**: Custom properties, flexbox, and grid for responsive layouts
-- **JavaScript**: Vanilla JS for interactive elements (FAQ accordion, price toggle)
-
-### Key Features
-
-1. **Responsive Design**: Mobile-first approach with breakpoints at 768px and 1024px
-2. **Custom Fonts**: Proper @font-face implementation for Century Old Style and Poppins
-3. **Smooth Animations**: CSS transitions for hover states and scrolling banner
-4. **Accessibility**: Semantic HTML and proper contrast ratios
-
-### Performance Optimizations
-
-- Lazy loading for featured logos
-- Font display swap for better loading experience
-- Optimized images from provided assets
+[Live Preview Link - To Be Added After Deployment]
 
 ## Tracking Implementation
 
 ### Google Analytics 4 (GA4)
 
-Placeholder code is included (commented) for:
+Placeholder code is included (commented out) for:
 
-- **Page View**: Automatic tracking on page load
-- **Button Clicks**: Custom events for "Shop Now" CTA
-- **Price Selection**: Events for regular vs subscription pricing
+- **Page View**: Automatic tracking on page load.
+- **Button Clicks**: Custom events for "Shop Now" CTA clicks.
+- **Price Selection**: Events for regular vs. subscription pricing choices.
 
 **Implementation Steps:**
 
-1. Replace `GA_MEASUREMENT_ID` with your actual ID
-2. Uncomment GA4 script tags in index.html
-3. Uncomment gtag() calls in script.js
+1. I would replace `GA_MEASUREMENT_ID` in `index.html` with the actual ID.
+2. Uncomment the GA4 script tags in `index.html`.
+3. Uncomment the `gtag()` calls in `js/script.js` for event tracking.
 
 **Validation:**
 
-- Use Google Tag Assistant extension
-- Check GA4 Real-Time reports
-- Verify in DebugView mode
+- Use the Google Tag Assistant extension.
+- Check GA4 Real-Time reports.
+- Verify in DebugView mode for detailed event analysis.
 
 ### Meta Pixel
 
-Placeholder code is included (commented) for:
+Placeholder code is included (commented out) for:
 
-- **PageView**: Standard page view tracking
-- **Lead Event**: Triggered on "Shop Now" clicks with product context
+- **PageView**: Standard page view tracking on load.
+- **Lead Event**: Triggered on "Shop Now" clicks to track high-intent users.
 
 **Implementation Steps:**
 
-1. Replace `YOUR_PIXEL_ID` with your actual ID
-2. Uncomment Meta Pixel script in index.html
-3. Uncomment fbq() calls in script.js
+1. I would replace `YOUR_PIXEL_ID` in `index.html` with the actual ID.
+2. Uncomment the Meta Pixel script in `index.html`.
+3. Uncomment the `fbq()` calls in `js/script.js`.
 
 **Validation:**
 
-- Use Meta Pixel Helper extension
-- Check Events Manager dashboard
-- Test with Meta's Event Testing tool
-
-## Deployment Instructions
-
-### Using Netlify (Recommended)
-
-1. Create a [Netlify](https://www.netlify.com/) account
-2. Drag and drop the project folder to Netlify dashboard
-3. Site will be live instantly with a unique URL
-
-### Using Vercel
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in project directory
-3. Follow prompts to deploy
-
-### Using GitHub Pages
-
-1. Push to GitHub repository
-2. Go to Settings > Pages
-3. Select source branch and save
-4. Access via `https://[username].github.io/[repo-name]`
+- Use the Meta Pixel Helper extension.
+- Check the Events Manager dashboard in Meta Business Suite.
+- Test with Meta's Event Testing tool.
 
 ## A/B Test Hypothesis
 
-### Current Issue
+### Problem
 
-High bounce rate observed from paid ad traffic on this landing page.
+A high bounce rate has been observed from paid ad traffic on this landing page. The "Featured In" logos—a key third-party trust signal for new visitors—are pushed below the initial viewport ("the fold") on many common mobile and laptop resolutions. Users with low brand familiarity are not immediately seeing one of our strongest credibility assets.
 
-### Test Hypothesis
+### Hypothesis
 
-**Adding social proof elements immediately below the fold will increase conversions by building trust faster.**
+By making subtle reductions to the vertical height of the hero section, we can pull the "Featured In" logos into the initial viewport for a majority of users. This immediate exposure to social proof will build trust faster, reduce user hesitation and bounce rate, leading to increased engagement and a higher conversion rate.
 
 ### Test Structure
 
-- **Control (A)**: Current design
-- **Variant (B)**: Add a testimonials carousel section after the hero, featuring:
-  - 3-4 customer testimonials with names and locations
-  - Before/after wellness scores
-  - Verified purchase badges
+- **Control (A)**: The current design where the "Featured In" section is often below the fold.
+
+  ```
+  +----------------------------------+
+  |                                  |
+  |         [Hero Section]           |
+  |     (H1, p, rating, CTA)         |
+  |                                  |
+  |                                  |
+  +==================================+  <-- THE FOLD
+  |  [Featured In Section - HIDDEN]  |
+  +----------------------------------+
+  ```
+
+- **Variant (B)**: A modified design with a slightly shorter hero section, making the "Featured In" logos visible on page load.
+
+  ```
+  +----------------------------------+
+  |     [Slightly Shorter Hero       |
+  |           Section]               |
+  +----------------------------------+
+  |                                  |
+  |  [Featured In Section - VISIBLE] |
+  |                                  |
+  +==================================+  <-- THE FOLD
+  ```
 
 ### Success Metrics
 
-- Primary: Conversion rate (Shop Now clicks → purchases)
-- Secondary: Time on page, scroll depth, bounce rate
-- Target: 15% increase in conversion rate
+- **Primary Metric**: Conversion Rate (clicks on "Shop Now" buttons).
+- **Secondary Metrics**:
+
+  - Bounce Rate (should decrease).
+  - Scroll Depth (should increase).
+  - Average Time on Page.
+
+- **Target**: Achieve a statistically significant decrease in bounce rate and a 5-10% lift in conversion rate.
 
 ### Implementation
 
-Use Google Optimize or similar tool to serve 50/50 traffic split. Run for minimum 2 weeks or until statistical significance is reached.
-
-## Project Structure
-
-```
-5280-brands/
-├── index.html          # Main landing page
-├── styles.css          # All styling
-├── fonts.css           # Font declarations
-├── script.js           # Interactive functionality
-├── README.md           # This file
-├── Images/             # All image assets
-└── Fonts/              # Custom font files
-```
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Android)
+Use an A/B testing tool like Intelligems, to serve a 50/50 traffic split. Run the test for a minimum of 2 weeks or until statistical significance is reached on the primary metric.

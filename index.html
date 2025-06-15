@@ -145,7 +145,7 @@
             <div class="product-content-wrapper">
               <div class="product-details-group">
                 <div class="product-title-rating">
-                  <h2>Multifunctional Gummies</h2>
+                  <h2>Multifunctional Gummies<!-- {{ product.title }} --></h2>
                   <div class="product-rating">
                     <div class="stars">
                       <img src="images/star.svg" alt="Star" />
@@ -186,7 +186,7 @@
                     onclick="selectPrice('regular')"
                   >
                     <span class="price-label">Regular Price</span>
-                    <span class="price-amount">$55</span>
+                    <span class="price-amount">$55<!-- {{ product.price | money }} --></span>
                   </button>
                   <button
                     class="price-btn"
@@ -197,9 +197,11 @@
                     <span class="price-amount">$44</span>
                   </button>
                 </div>
+                <!-- {% form 'product' %} -->
                 <button class="btn-primary" onclick="shopNow()">
-                  SHOP NOW
+                  SHOP NOW<!-- {{ 'general.shop_now' | t }} -->
                 </button>
+                <!-- {% endform %} -->
               </div>
             </div>
           </div>
@@ -212,7 +214,7 @@
       <div class="scrolling-content">
         <span>60 Day Money-Back</span>
         <span>Subscribe & Save</span>
-        <span>Free Shipping</span>
+        <span>Free Shipping<!-- {{ 'product.free_shipping' | t }} --></span>
       </div>
     </div>
 
@@ -383,5 +385,20 @@
     </footer>
 
     <script src="js/script.js"></script>
+
+    <!-- 
+    {% schema %}
+    {
+      "name": "Product Landing",
+      "settings": [
+        {
+          "type": "text",
+          "id": "hero_title",
+          "label": "Hero Title"
+        }
+      ]
+    }
+    {% endschema %}
+    -->
   </body>
 </html>
