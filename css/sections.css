@@ -104,10 +104,18 @@
   text-rendering: optimizeLegibility;
 }
 
+.hero-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 .hero .btn-primary {
-  width: 145px;
-  height: 56px;
   padding: 16px 25px;
+  min-width: auto;
+  letter-spacing: 1.12125px;
+  line-height: 24px;
 }
 
 /* Featured In Section */
@@ -123,20 +131,26 @@
 
 .featured-in h2 {
   align-self: stretch;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: 0.48px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   margin: 0;
 }
 
 /* Product Section */
 .product-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
   background-color: var(--white);
   padding: 0;
 }
@@ -149,8 +163,6 @@
   align-items: center;
   gap: 10px;
   flex: 1 0 0;
-  align-self: stretch;
-  margin: 0 auto;
 }
 
 .product-grid {
@@ -175,7 +187,7 @@
   position: relative;
   background: url("../images/PDP Thumbnails_Thumb 1_60mg Multifunctional FS Gummes.jpg")
     lightgray 50% / cover no-repeat;
-  min-height: 577px;
+  min-height: 537px;
 }
 
 .product-info {
@@ -202,7 +214,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 30px;
   align-self: stretch;
 }
 
@@ -254,6 +266,7 @@
 }
 
 .product-description {
+  width: 416px;
   font-size: 19px;
   line-height: 29px;
   color: var(--black);
@@ -303,7 +316,7 @@
 
 .faq-section h2 {
   align-self: stretch;
-  color: var(--rr-green-dark, #063D35);
+  color: var(--rr-green-dark, #063d35);
   text-align: center;
   font-family: "Century Old Style Std";
   font-size: 52px;
@@ -369,7 +382,6 @@
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
-
 .faq-item.active .faq-answer {
   max-height: 400px;
   padding: 26px 80px 0 0;
@@ -392,7 +404,12 @@
 
 /* Footer */
 .main-footer {
-  background-color: var(--green-dark-hover);
-  padding: 40px 0;
-  text-align: center;
+  width: 100%;
+  position: relative;
+  background-color: #004943;
+  height: 368px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

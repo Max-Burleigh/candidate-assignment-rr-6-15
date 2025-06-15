@@ -210,22 +210,61 @@
 
 .footer-logo {
   width: 239px;
-  height: 150px;
-  flex-shrink: 0;
-  aspect-ratio: 239/150;
+  position: relative;
+  max-height: 100%;
   filter: brightness(0) invert(1);
 }
 
 .logos-grid {
+  align-self: stretch;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 43px;
-  align-self: stretch;
 }
 
 .logos-grid img {
-  height: 30px;
-  width: auto;
   filter: brightness(0) invert(1);
+}
+
+/* Specific logo sizes matching Figma */
+.logos-grid img:nth-child(1) { /* Healthline */
+  width: 156.1px;
+  height: 24.7px;
+}
+
+.logos-grid img:nth-child(2) { /* LA Weekly */
+  width: 130px;
+  height: 33.1px;
+}
+
+.logos-grid img:nth-child(3) { /* Shape */
+  width: 111.1px;
+  height: 30.1px;
+}
+
+.logos-grid img:nth-child(4) { /* Forbes */
+  width: 108.5px;
+  height: 27.3px;
+}
+
+.logos-grid img:nth-child(5) { /* Popular Science */
+  width: 121.7px;
+  height: 43.9px;
+}
+
+.logos-grid img:nth-child(6) { /* Yahoo */
+  width: 119.6px;
+  height: 33.3px;
+}
+
+.logos-grid img:nth-child(7) { /* Discover */
+  width: 128.3px;
+  height: 35.9px;
+}
+
+.logos-grid img:nth-child(8) { /* Health */
+  width: 101.5px;
+  height: 28.3px;
 }
