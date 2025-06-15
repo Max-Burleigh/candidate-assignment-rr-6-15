@@ -56,7 +56,7 @@
     background-image: url("../images/HP Hero_MOBILE.jpg");
     background-size: cover;
     background-position: center;
-    min-height: 750px;
+    min-height: 775px;
     padding: 25px 20px 60px;
     text-align: center;
     position: relative;
@@ -77,6 +77,10 @@
     padding: 0;
     position: relative;
     z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    margin: 0;
   }
 
   .hero-content {
@@ -93,23 +97,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     order: 1;
   }
 
 
   .hero h1 {
     font-size: 32px;
-    line-height: 38px;
+    line-height: 1;
     text-align: center;
-    margin-bottom: 5px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -8px;
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
   }
 
   .hero-description {
     width: auto;
     max-width: 340px;
     text-align: center;
-    margin-bottom: 10px;
     font-size: 18px;
     line-height: 26px;
   }
