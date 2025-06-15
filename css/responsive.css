@@ -222,7 +222,7 @@
 
   /* FAQ Section Mobile Layout */
   .faq-section {
-    padding: 40px 20px;
+    padding: 30px 20px;
   }
 
   .faq-section h2 {
@@ -230,17 +230,23 @@
     line-height: 38px;
   }
 
+  .faq-list {
+    gap: 15px;
+  }
+
   .faq-question {
-    padding: 20px 10px;
+    padding: 15px 10px;
   }
 
   .faq-item.active .faq-answer {
-    padding: 20px 10px 20px 20px;
+    padding: 15px 0 15px 0; /* Top/bottom padding only, no left/right */
   }
 
   .faq-answer p {
     font-size: 16px;
     line-height: 24px;
+    padding: 0 !important;
+    margin: 0 10px; /* Use margin for horizontal spacing instead of padding */
   }
 
   /* Mobile-Specific Component Adjustments */
@@ -252,5 +258,11 @@
   .benefits-list span {
     font-size: 16px;
     line-height: 24px;
+  }
+
+  /* Footer Logo Mobile Sizing */
+  .footer-logo {
+    width: 120px;
+    height: 75px;
   }
 }
