@@ -5,78 +5,215 @@
 
 /* ---- Tablet (1024px and below) ---- */
 @media (max-width: 1024px) {
-    .hero-inner {
-        padding: 40px 27px;
-    }
-    
-    .hero-content {
-        margin-left: 0;
-    }
-    
-    .product-grid {
-        flex-direction: column;
-    }
-    
-    .product-image {
-        flex: 1;
-        width: 100%;
-    }
-    
-    .product-info {
-        padding: 40px;
-    }
+  .hero-inner {
+    padding: 40px 27px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+  }
+
+  .product-grid {
+    flex-direction: column;
+  }
+
+  .product-image {
+    flex: 1;
+    width: 100%;
+  }
+
+  .product-info {
+    padding: 40px;
+  }
 }
 
 /* ---- Mobile (768px and below) ---- */
 @media (max-width: 768px) {
-    .hero {
-        background-image: url('../images/HP Hero_MOBILE.jpg');
-        min-height: 500px;
-    }
-    
-    .hero h1 {
-        font-size: 36px;
-        line-height: 44px;
-    }
-    
-    .hero-inner {
-        padding: 40px 20px;
-    }
-    
-    .hero-content {
-        max-width: 100%;
-        margin-left: 0;
-    }
-    
-    .logos-grid {
-        gap: 20px;
-    }
-    
-    .logos-grid img {
-        height: 24px;
-    }
-    
-    .product-info {
-        padding: 30px 20px;
-    }
-    
-    .product-info h2 {
-        font-size: 32px;
-    }
-    
-    .faq-section h2 {
-        font-size: 36px;
-    }
-    
-    .faq-answer {
-        font-size: 16px;
-    }
-    
-    .faq-item.active .faq-answer {
-        padding: 0 20px 20px 10px;
-    }
-    
-    .price-options {
-        flex-direction: column;
-    }
+  /* Header Height Reduction */
+  .main-header {
+    height: 55px;
+  }
+
+  .logo {
+    width: 56px;
+    height: 35px;
+  }
+
+  /* Announcement Bar Mobile Optimization */
+  .top-banner {
+    padding: 14px 20px;
+  }
+
+  .top-banner p {
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: none;
+    line-height: 1.2;
+  }
+
+  /* Hero Section Mobile Layout */
+  .hero {
+    background-image: url("../images/HP Hero_MOBILE.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 750px;
+    padding: 25px 20px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    padding: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    order: 1;
+  }
+
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .hero-description {
+    width: auto;
+    max-width: 340px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .rating {
+    justify-content: center;
+  }
+
+  .hero .btn-primary {
+    min-width: 180px;
+    width: 180px;
+    margin: 0 auto;
+    order: 2;
+    align-self: center;
+  }
+
+  /* Featured In Section Mobile */
+  .featured-in {
+    padding: 30px 20px 40px;
+  }
+
+  .logos-grid {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logos-grid img {
+    height: 24px;
+  }
+
+  /* Product Section Complete Mobile Overhaul */
+  .product-container {
+    padding: 40px 20px;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .product-image {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    min-height: 300px;
+    background-size: contain;
+  }
+
+  .product-info {
+    max-width: none;
+    padding: 0;
+  }
+
+  .product-info h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  /* Price Options Mobile Stacking */
+  .price-options {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .price-btn {
+    width: 100%;
+    padding: 16px 20px;
+  }
+
+  /* FAQ Section Mobile Layout */
+  .faq-section {
+    padding: 40px 20px;
+  }
+
+  .faq-section h2 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .faq-question {
+    padding: 20px 10px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 20px 10px 20px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* Mobile-Specific Component Adjustments */
+  .btn-primary {
+    min-width: 140px;
+    padding: 14px 20px;
+  }
+
+  .benefits-list span {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
