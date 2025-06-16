@@ -69,125 +69,43 @@ function shopNow() {
   });
 }
 
-// Enhanced Infinite Scrolling Banner with Advanced Performance
-// Vanilla JS implementation with enterprise-level optimizations
+/* ==========================================
+   INFINITE SCROLLING BANNER  –  rebuilt
+   ========================================== */
 function initScrollingBanner() {
-  const scrollingContent = document.querySelector(".scrolling-content");
-  if (!scrollingContent) return;
+  const content = document.querySelector(".scrolling-content");
+  if (!content) return;
 
-  let isVisible = true;
-  let resizeTimer = null;
+  /* 1. Duplicate once — that's all we need for a perfect loop */
+  const originalHTML = content.innerHTML.trim();
+  content.innerHTML = originalHTML + originalHTML; // 200 %
 
-  // Store single set HTML
-  const originalContent = scrollingContent.innerHTML;
+  /* 2. Helper to (re)calculate speed so it feels identical on any screen */
+  function setDuration() {
+    const totalWidth   = content.scrollWidth;   // width of the 2 copies
+    const distancePx   = totalWidth / 2;        // we only travel half of it
+    const pxPerSecond  = window.innerWidth < 768 ? 60 : 90; // slower on mobile
+    const duration     = distancePx / pxPerSecond;
 
-  // Enhanced setup function with better calculations
-  function setupBanner() {
-    // Reset content to original
-    scrollingContent.innerHTML = originalContent;
-
-    const viewportWidth = window.innerWidth;
-    let currentCopies = 1;
-
-    // More robust duplication calculation
-    while (scrollingContent.scrollWidth < viewportWidth * 2) {
-      scrollingContent.innerHTML += originalContent;
-      currentCopies += 1;
-      // Safety break to prevent infinite loops
-      if (currentCopies > 10) break;
-    }
-
-    // Enhanced measurement with multiple RAF calls for stability
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const totalWidth = scrollingContent.scrollWidth;
-        const singleWidth = totalWidth / currentCopies;
-
-        scrollingContent.style.setProperty(
-          "--scroll-width",
-          `${singleWidth}px`
-        );
-
-        // Dynamic speed based on screen size for better UX
-        const baseSpeed = window.innerWidth < 768 ? 80 : 100; // Slower on mobile
-        const duration = singleWidth / baseSpeed;
-        scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
-      });
-    });
+    content.style.setProperty("--scroll-duration", `${duration}s`);
   }
 
-  // Intersection Observer for performance optimization
+  /* 3. Run once fonts have finished rendering, then on resize (debounced) */
+  requestAnimationFrame(setDuration);
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setDuration, 200);
+  });
+
+  /* 4. Pause when banner is outside viewport to save resources */
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        isVisible = entry.isIntersecting;
-        // Pause animation when not visible to save resources
-        if (!isVisible) {
-          scrollingContent.classList.add("paused");
-        } else {
-          scrollingContent.classList.remove("paused");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "50px",
-    }
+    ([entry]) =>
+      content.classList.toggle("paused", !entry.isIntersecting),
+    { threshold: 0 }
   );
-
-  observer.observe(scrollingContent.parentElement);
-
-  // Enhanced responsive handling with debouncing
-  function handleResize() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if (isVisible) {
-        setupBanner();
-      }
-    }, 250); // Debounce resize events
-  }
-
-  // Touch event handlers for mobile UX enhancement
-  let touchStartY = 0;
-  function handleTouchStart(e) {
-    touchStartY = e.touches[0].clientY;
-  }
-
-  function handleTouchMove(e) {
-    const touchY = e.touches[0].clientY;
-    const deltaY = Math.abs(touchY - touchStartY);
-
-    // If vertical scroll gesture, temporarily pause for better UX
-    if (deltaY > 10) {
-      scrollingContent.classList.add("paused");
-      setTimeout(() => {
-        if (isVisible) {
-          scrollingContent.classList.remove("paused");
-        }
-      }, 1000);
-    }
-  }
-
-  // Event listeners with passive flags for better performance
-  window.addEventListener("resize", handleResize, { passive: true });
-  scrollingContent.addEventListener("touchstart", handleTouchStart, {
-    passive: true,
-  });
-  scrollingContent.addEventListener("touchmove", handleTouchMove, {
-    passive: true,
-  });
-
-  // Initial setup
-  setupBanner();
-
-  // Return cleanup function for potential future use
-  return () => {
-    observer.disconnect();
-    window.removeEventListener("resize", handleResize);
-    scrollingContent.removeEventListener("touchstart", handleTouchStart);
-    scrollingContent.removeEventListener("touchmove", handleTouchMove);
-    clearTimeout(resizeTimer);
-  };
+  observer.observe(content);
 }
 
 // Robust Banner Management with Dynamic Responsive Switching

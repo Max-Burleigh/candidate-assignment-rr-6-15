@@ -1,25 +1,22 @@
 /* ==========================================
-   ANIMATIONS.CSS
-   Keyframes and animation definitions
+   ANIMATIONS.CSS  –  updated marquee
    ========================================== */
 
 .scrolling-content {
-  animation: scroll var(--scroll-duration, 20s) linear infinite;
+  animation: marquee var(--scroll-duration, 15s) linear infinite;
   will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
 }
 
 .scrolling-content.paused {
   animation-play-state: paused;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(calc(-1 * var(--scroll-width, 50%)), 0, 0);
-  }
+@keyframes marquee {
+  0%   { transform: translateX(0);   }
+  100% { transform: translateX(-50%); }   /* move half the (duplicated) width */
+}
+
+/* Respect users that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scrolling-content { animation: none; }
 }
