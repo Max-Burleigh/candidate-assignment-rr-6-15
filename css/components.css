@@ -13,7 +13,7 @@
   align-self: stretch;
   border-radius: 50px;
   background: var(--rr-green-current-web, #004943);
-  color: var(--rr-white, #FFF);
+  color: var(--rr-white, #fff);
   border: none;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -78,7 +78,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: var(--chartreuse);
+  background-color: var(--rr-bright-chartreuse);
   color: var(--green-primary);
   border: 1px solid var(--green-primary);
   border-radius: 50px;
@@ -174,7 +174,7 @@
 }
 
 #subscribe-price {
-  background: var(--chartreuse, #ebff9d);
+  background: var(--rr-bright-chartreuse, #ebff9d);
   color: var(--green-primary);
 }
 
@@ -229,42 +229,50 @@
 }
 
 /* Specific logo sizes matching Figma */
-.logos-grid img:nth-child(1) { /* Healthline */
+.logos-grid img:nth-child(1) {
+  /* Healthline */
   width: 156.1px;
   height: 24.7px;
 }
 
-.logos-grid img:nth-child(2) { /* LA Weekly */
+.logos-grid img:nth-child(2) {
+  /* LA Weekly */
   width: 130px;
   height: 33.1px;
 }
 
-.logos-grid img:nth-child(3) { /* Shape */
+.logos-grid img:nth-child(3) {
+  /* Shape */
   width: 111.1px;
   height: 30.1px;
 }
 
-.logos-grid img:nth-child(4) { /* Forbes */
+.logos-grid img:nth-child(4) {
+  /* Forbes */
   width: 108.5px;
   height: 27.3px;
 }
 
-.logos-grid img:nth-child(5) { /* Popular Science */
+.logos-grid img:nth-child(5) {
+  /* Popular Science */
   width: 121.7px;
   height: 43.9px;
 }
 
-.logos-grid img:nth-child(6) { /* Yahoo */
+.logos-grid img:nth-child(6) {
+  /* Yahoo */
   width: 119.6px;
   height: 33.3px;
 }
 
-.logos-grid img:nth-child(7) { /* Discover */
+.logos-grid img:nth-child(7) {
+  /* Discover */
   width: 128.3px;
   height: 35.9px;
 }
 
-.logos-grid img:nth-child(8) { /* Health */
+.logos-grid img:nth-child(8) {
+  /* Health */
   width: 101.5px;
   height: 28.3px;
 }
