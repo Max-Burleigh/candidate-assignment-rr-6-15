@@ -94,13 +94,17 @@ function initScrollingBanner() {
 
     // Calculate how many copies we need for seamless scrolling
     // We need at least enough to fill 2x viewport width + 1 extra for seamless loop
-    const copiesNeeded = Math.ceil((viewportWidth * 2) / singleSetWidth) + 1;
+    const copiesNeeded = Math.ceil((viewportWidth * 2) / singleSetWidth) + 2; // Changed from +1 to +2 for extra buffer
 
     // Duplicate content to ensure smooth infinite scroll
     for (let i = 1; i < copiesNeeded; i++) {
       scrollingContent.innerHTML += originalContent;
       currentCopies++;
     }
+
+    // Set initial position to prevent flicker
+    scrollingContent.style.transform = 'translateX(0)';
+    scrollingContent.style.webkitTransform = 'translateX(0)';
 
     // Enhanced measurement with RAF for stability
     requestAnimationFrame(() => {
@@ -114,6 +118,9 @@ function initScrollingBanner() {
       const baseSpeed = window.innerWidth < 768 ? 60 : 80; // Slower on mobile
       const duration = singleSetWidth / baseSpeed;
       scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
+      
+      // Force a reflow to ensure animation starts cleanly
+      scrollingContent.offsetHeight;
     });
   }
 
