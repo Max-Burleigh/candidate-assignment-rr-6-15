@@ -456,7 +456,11 @@
     line-height: 24px;
   }
 
-  /* Footer Logo Mobile Sizing */
+  /* Footer Mobile Styling */
+  .main-footer {
+    height: 180px;
+  }
+  
   .footer-logo {
     width: 120px;
     height: 75px;
