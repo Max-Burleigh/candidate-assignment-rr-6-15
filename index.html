@@ -17,6 +17,10 @@
       R&R Multifunctional CBD Gummies | Natural Relief & Better Sleep
     </title>
 
+    <!-- Preload Critical Images -->
+    <link rel="preload" href="images/HP Hero_DESKTOP.jpg" as="image" media="(min-width: 769px)" />
+    <link rel="preload" href="images/HP Hero_MOBILE.jpg" as="image" media="(max-width: 768px)" />
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/reset.css" />
@@ -68,7 +72,7 @@
 
     <!-- Header -->
     <header class="main-header">
-      <img src="images/R&R Logo.svg" alt="R&R Logo" class="logo" />
+      <img src="images/R&R Logo.svg" alt="R&R Logo" class="logo" fetchpriority="high" />
     </header>
 
     <!-- Hero Section -->
@@ -78,11 +82,11 @@
           <div class="hero-text-content">
             <div class="rating">
               <div class="stars">
-                <img src="images/star.svg" alt="Star" />
-                <img src="images/star.svg" alt="Star" />
-                <img src="images/star.svg" alt="Star" />
-                <img src="images/star.svg" alt="Star" />
-                <img src="images/star.svg" alt="Star" />
+                <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                <img src="images/star.svg" alt="Star" fetchpriority="high" />
               </div>
               <span>Over 50,000 happy customers</span>
             </div>
@@ -160,11 +164,11 @@
                   <h2>Multifunctional Gummies<!-- {{ product.title }} --></h2>
                   <div class="product-rating">
                     <div class="stars">
-                      <img src="images/star.svg" alt="Star" />
-                      <img src="images/star.svg" alt="Star" />
-                      <img src="images/star.svg" alt="Star" />
-                      <img src="images/star.svg" alt="Star" />
-                      <img src="images/star.svg" alt="Star" />
+                      <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                      <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                      <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                      <img src="images/star.svg" alt="Star" fetchpriority="high" />
+                      <img src="images/star.svg" alt="Star" fetchpriority="high" />
                     </div>
                     <span class="reviews-text">188 Reviews</span>
                   </div>
@@ -176,15 +180,15 @@
                   </p>
                   <ul class="benefits-list">
                     <li>
-                      <img src="images/check mark.svg" alt="Check" />
+                      <img src="images/check mark.svg" alt="Check" fetchpriority="high" />
                       <span>Reduce body aches and pains</span>
                     </li>
                     <li>
-                      <img src="images/check mark.svg" alt="Check" />
+                      <img src="images/check mark.svg" alt="Check" fetchpriority="high" />
                       <span>Enhances mental clarity and focus</span>
                     </li>
                     <li>
-                      <img src="images/check mark.svg" alt="Check" />
+                      <img src="images/check mark.svg" alt="Check" fetchpriority="high" />
                       <span>Induces a deeper, restorative sleep</span>
                     </li>
                   </ul>
@@ -393,7 +397,7 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-      <img src="images/R&R Logo.svg" alt="R&R Logo" class="footer-logo" />
+      <img src="images/R&R Logo.svg" alt="R&R Logo" class="footer-logo" loading="lazy" />
     </footer>
 
     <script src="js/script.js"></script>

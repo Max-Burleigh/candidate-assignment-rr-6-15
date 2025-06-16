@@ -68,7 +68,7 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: #F1F5F4;
+    background-color: #f1f5f4;
   }
 
   .product-info {
@@ -119,7 +119,7 @@
     padding: 0 20px;
     scrollbar-width: thin;
   }
-  
+
   .logos-grid img {
     flex-shrink: 0;
   }
@@ -164,7 +164,7 @@
 @media (max-width: 768px) {
   /* Header Height Reduction */
   .main-header {
-    height: 55px;
+    height: 50px;
   }
 
   .logo {
@@ -207,8 +207,8 @@
     background-image: url("../images/HP Hero_MOBILE.jpg");
     background-size: cover;
     background-position: center;
-    min-height: 775px;
-    padding: 25px 20px 60px;
+    min-height: 680px;
+    padding: 15px 20px 60px;
     text-align: center;
     position: relative;
   }
@@ -376,7 +376,7 @@
     max-width: unset;
     min-height: 350px;
     background-size: contain;
-    background-color: #F1F5F4;
+    background-color: #f1f5f4;
     background-position: center center;
     background-repeat: no-repeat;
     padding: 0;
@@ -471,13 +471,13 @@
     gap: 8px;
     text-align: center;
   }
-  
+
   .rating .stars {
     order: 1;
     width: 100%;
     justify-content: center;
   }
-  
+
   .rating span {
     order: 2;
     width: 100%;
