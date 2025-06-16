@@ -190,10 +190,88 @@ function initScrollingBanner() {
   };
 }
 
+// Robust Banner Management with Dynamic Responsive Switching
+let bannerManager = {
+  interval: null,
+  currentIndex: 0,
+  isMobile: false,
+  mobileMessages: [],
+  
+  init() {
+    this.mobileMessages = document.querySelectorAll('.mobile-message');
+    this.checkAndUpdate();
+    this.addResizeListener();
+  },
+  
+  checkAndUpdate() {
+    const newIsMobile = window.innerWidth <= 768;
+    
+    // If mode changed, cleanup and reinitialize
+    if (newIsMobile !== this.isMobile) {
+      this.cleanup();
+      this.isMobile = newIsMobile;
+      
+      if (this.isMobile) {
+        this.startMobileCycling();
+      }
+    }
+  },
+  
+  startMobileCycling() {
+    if (this.mobileMessages.length === 0) return;
+    
+    // Reset all messages
+    this.mobileMessages.forEach(msg => msg.classList.remove('active'));
+    
+    // Start with first message
+    this.currentIndex = 0;
+    this.mobileMessages[this.currentIndex].classList.add('active');
+    
+    // Start cycling
+    this.interval = setInterval(() => {
+      // Hide current message
+      this.mobileMessages[this.currentIndex].classList.remove('active');
+      
+      // Move to next message
+      this.currentIndex = (this.currentIndex + 1) % this.mobileMessages.length;
+      
+      // Show next message
+      this.mobileMessages[this.currentIndex].classList.add('active');
+    }, 3000);
+  },
+  
+  cleanup() {
+    // Clear interval
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
+    
+    // Reset all mobile messages
+    this.mobileMessages.forEach(msg => msg.classList.remove('active'));
+    
+    // Reset index
+    this.currentIndex = 0;
+  },
+  
+  addResizeListener() {
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.checkAndUpdate();
+      }, 150); // Debounce resize events
+    });
+  }
+};
+
 // Smooth Scroll for Anchor Links
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize infinite scrolling banner
   initScrollingBanner();
+  
+  // Initialize robust banner management
+  bannerManager.init();
 
   // Add smooth scrolling to all links
   const links = document.querySelectorAll('a[href^="#"]');

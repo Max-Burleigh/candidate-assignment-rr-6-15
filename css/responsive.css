@@ -175,13 +175,31 @@
   /* Announcement Bar Mobile Optimization */
   .top-banner {
     padding: 14px 20px;
+    position: relative;
   }
 
-  .top-banner p {
+  /* Mobile: hide desktop message, show mobile messages */
+  .desktop-message {
+    display: none;
+  }
+
+  .mobile-message {
+    display: block;
     font-size: 12px;
     font-weight: 300;
     text-transform: none;
     line-height: 1.2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .mobile-message.active {
+    opacity: 1;
   }
 
   /* Hero Section Mobile Layout */
@@ -245,7 +263,7 @@
 
   .hero h1 {
     font-size: 32px;
-    line-height: 1;
+    line-height: 1.1;
     text-align: center;
     max-width: 280px;
     margin-left: auto;
@@ -413,7 +431,7 @@
   }
 
   .faq-question {
-    padding: 15px 10px;
+    padding: 15px 30px 15px 10px;
   }
 
   .faq-item.active .faq-answer {
@@ -442,5 +460,29 @@
   .footer-logo {
     width: 120px;
     height: 75px;
+  }
+}
+
+/* ---- Small Mobile (360px and below) ---- */
+@media (max-width: 360px) {
+  .rating {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .rating .stars {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .rating span {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.2;
   }
 }

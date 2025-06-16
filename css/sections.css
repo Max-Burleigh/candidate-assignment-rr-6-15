@@ -12,7 +12,7 @@
   padding: 10px 27px;
 }
 
-.top-banner p {
+.banner-message {
   flex: 1 0 0;
   color: var(--rr-white, #fff);
   text-align: center;
@@ -23,6 +23,15 @@
   line-height: normal;
   text-transform: capitalize;
   margin: 0;
+}
+
+/* Desktop: show only desktop message */
+.mobile-message {
+  display: none;
+}
+
+.desktop-message {
+  display: block;
 }
 
 /* Header */
@@ -192,7 +201,7 @@
 
 .product-info {
   display: flex;
-  max-width: 600px;
+  max-width: 576px;
   padding: 0px 80px;
   flex-direction: column;
   align-items: flex-start;
