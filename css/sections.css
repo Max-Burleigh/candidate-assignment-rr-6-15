@@ -302,6 +302,8 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  /* Remove any gaps between inline elements */
+  font-size: 0;
 }
 
 .scrolling-content span {
@@ -312,6 +314,8 @@
   margin-right: 60px;
   white-space: nowrap;
   flex-shrink: 0;
+  /* Reset font-size for the spans */
+  display: inline-block;
 }
 
 /* FAQ Section */

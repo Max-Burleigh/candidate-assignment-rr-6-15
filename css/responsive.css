@@ -456,6 +456,18 @@
     line-height: 24px;
   }
 
+  /* Scrolling Banner Mobile Styling */
+  .scrolling-banner {
+    height: 60px;
+    padding: 18px 0;
+  }
+  
+  .scrolling-content span {
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 40px;
+  }
+
   /* Footer Mobile Styling */
   .main-footer {
     height: 180px;
