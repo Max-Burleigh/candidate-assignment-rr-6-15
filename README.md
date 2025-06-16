@@ -16,7 +16,7 @@ JS (including completely vanilla implementation for scrolling banner).
 
 ## Live Preview
 
-[Live Preview Link - To Be Added After Deployment]
+https://stalwart-cascaron-264fbd.netlify.app/
 
 ## Tracking Implementation
 
