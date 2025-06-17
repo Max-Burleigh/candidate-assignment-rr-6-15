@@ -3,10 +3,17 @@
    Base body styles and global typography
    ========================================== */
 
+/*
+  Updated 6-17 at 3:20PM PST
+*/
+html,
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: var(--black);
-    line-height: 1.5;
-    overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.5;
 }
