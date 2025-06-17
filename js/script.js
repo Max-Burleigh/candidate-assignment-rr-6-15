@@ -75,7 +75,6 @@ function initScrollingBanner() {
   const scrollingContent = document.querySelector(".scrolling-content");
   if (!scrollingContent) return;
 
-  let isVisible = true;
   let resizeTimer = null;
 
   // Store single set HTML
@@ -88,7 +87,7 @@ function initScrollingBanner() {
 
     // First, measure the width of ONE complete set of the 3 items
     const singleSetWidth = scrollingContent.scrollWidth;
-    
+
     const viewportWidth = window.innerWidth;
     let currentCopies = 1;
 
@@ -103,8 +102,8 @@ function initScrollingBanner() {
     }
 
     // Set initial position to prevent flicker
-    scrollingContent.style.transform = 'translateX(0)';
-    scrollingContent.style.webkitTransform = 'translateX(0)';
+    scrollingContent.style.transform = "translateX(0)";
+    scrollingContent.style.webkitTransform = "translateX(0)";
 
     // Enhanced measurement with RAF for stability
     requestAnimationFrame(() => {
@@ -118,82 +117,29 @@ function initScrollingBanner() {
       const baseSpeed = window.innerWidth < 768 ? 60 : 80; // Slower on mobile
       const duration = singleSetWidth / baseSpeed;
       scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
-      
+
       // Force a reflow to ensure animation starts cleanly
       scrollingContent.offsetHeight;
     });
   }
 
-  // Intersection Observer for performance optimization
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        isVisible = entry.isIntersecting;
-        // Pause animation when not visible to save resources
-        if (!isVisible) {
-          scrollingContent.classList.add("paused");
-        } else {
-          scrollingContent.classList.remove("paused");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "50px",
-    }
-  );
-
-  observer.observe(scrollingContent.parentElement);
-
   // Enhanced responsive handling with debouncing
   function handleResize() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      if (isVisible) {
-        setupBanner();
-      }
+      setupBanner();
     }, 250); // Debounce resize events
-  }
-
-  // Touch event handlers for mobile UX enhancement
-  let touchStartY = 0;
-  function handleTouchStart(e) {
-    touchStartY = e.touches[0].clientY;
-  }
-
-  function handleTouchMove(e) {
-    const touchY = e.touches[0].clientY;
-    const deltaY = Math.abs(touchY - touchStartY);
-
-    // If vertical scroll gesture, temporarily pause for better UX
-    if (deltaY > 10) {
-      scrollingContent.classList.add("paused");
-      setTimeout(() => {
-        if (isVisible) {
-          scrollingContent.classList.remove("paused");
-        }
-      }, 1000);
-    }
   }
 
   // Event listeners with passive flags for better performance
   window.addEventListener("resize", handleResize, { passive: true });
-  scrollingContent.addEventListener("touchstart", handleTouchStart, {
-    passive: true,
-  });
-  scrollingContent.addEventListener("touchmove", handleTouchMove, {
-    passive: true,
-  });
 
   // Initial setup
   setupBanner();
 
   // Return cleanup function for potential future use
   return () => {
-    observer.disconnect();
     window.removeEventListener("resize", handleResize);
-    scrollingContent.removeEventListener("touchstart", handleTouchStart);
-    scrollingContent.removeEventListener("touchmove", handleTouchMove);
     clearTimeout(resizeTimer);
   };
 }
@@ -204,80 +150,80 @@ let bannerManager = {
   currentIndex: 0,
   isMobile: false,
   mobileMessages: [],
-  
+
   init() {
-    this.mobileMessages = document.querySelectorAll('.mobile-message');
+    this.mobileMessages = document.querySelectorAll(".mobile-message");
     this.checkAndUpdate();
     this.addResizeListener();
   },
-  
+
   checkAndUpdate() {
     const newIsMobile = window.innerWidth <= 768;
-    
+
     // If mode changed, cleanup and reinitialize
     if (newIsMobile !== this.isMobile) {
       this.cleanup();
       this.isMobile = newIsMobile;
-      
+
       if (this.isMobile) {
         this.startMobileCycling();
       }
     }
   },
-  
+
   startMobileCycling() {
     if (this.mobileMessages.length === 0) return;
-    
+
     // Reset all messages
-    this.mobileMessages.forEach(msg => msg.classList.remove('active'));
-    
+    this.mobileMessages.forEach((msg) => msg.classList.remove("active"));
+
     // Start with first message
     this.currentIndex = 0;
-    this.mobileMessages[this.currentIndex].classList.add('active');
-    
+    this.mobileMessages[this.currentIndex].classList.add("active");
+
     // Start cycling
     this.interval = setInterval(() => {
       // Hide current message
-      this.mobileMessages[this.currentIndex].classList.remove('active');
-      
+      this.mobileMessages[this.currentIndex].classList.remove("active");
+
       // Move to next message
       this.currentIndex = (this.currentIndex + 1) % this.mobileMessages.length;
-      
+
       // Show next message
-      this.mobileMessages[this.currentIndex].classList.add('active');
+      this.mobileMessages[this.currentIndex].classList.add("active");
     }, 3000);
   },
-  
+
   cleanup() {
     // Clear interval
     if (this.interval) {
       clearInterval(this.interval);
       this.interval = null;
     }
-    
+
     // Reset all mobile messages
-    this.mobileMessages.forEach(msg => msg.classList.remove('active'));
-    
+    this.mobileMessages.forEach((msg) => msg.classList.remove("active"));
+
     // Reset index
     this.currentIndex = 0;
   },
-  
+
   addResizeListener() {
     let resizeTimeout;
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         this.checkAndUpdate();
       }, 150); // Debounce resize events
     });
-  }
+  },
 };
 
 // Smooth Scroll for Anchor Links
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize infinite scrolling banner
   initScrollingBanner();
-  
+
   // Initialize robust banner management
   bannerManager.init();
 
