@@ -307,9 +307,11 @@
 }
 
 .scrolling-content span {
+  color: var(--rr-white, #fff);
   font-family: "Century Old Style Std", serif;
-  font-weight: 400;
   font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
   line-height: 34px;
   margin-right: 60px;
   white-space: nowrap;

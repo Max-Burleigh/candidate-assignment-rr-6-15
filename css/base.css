@@ -6,14 +6,71 @@
 /*
   Updated 6-17 at 3:20PM PST
 */
+
+/* Root Settings */
+html {
+  font-size: 100%; /* 16px base */
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   overflow-x: hidden;
 }
 
+/* Typography & Font Rendering */
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: var(--black);
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessibility - Focus Styles */
+*:focus {
+  outline: 2px solid var(--green-primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Media Elements */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form Elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Print Styles */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 }
