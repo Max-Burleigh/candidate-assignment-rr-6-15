@@ -207,7 +207,9 @@
                           fetchpriority="high"
                         />
                       </div>
-                      <span class="reviews-text">188 Reviews</span>
+                      <span class="reviews-text"
+                        >188 Reviews<!-- {{ product.metafields.reviews.count.value | default: '188' }} Reviews --></span
+                      >
                     </div>
                   </div>
                   <div class="product-description-benefits">
@@ -244,6 +246,8 @@
                   </div>
                 </div>
                 <div class="product-buttons-group">
+                  <!-- {% form 'product', product %} -->
+                  <!-- {% if product.selected_or_first_available_variant.available %} -->
                   <div class="price-options">
                     <button
                       class="price-btn active"
@@ -252,7 +256,7 @@
                     >
                       <span class="price-label">Regular Price</span>
                       <span class="price-amount"
-                        >$55<!-- {{ product.price | money }} --></span
+                        >$55<!-- {{ product.selected_or_first_available_variant.price | money }} --></span
                       >
                     </button>
                     <button
@@ -261,13 +265,19 @@
                       onclick="selectPrice('subscribe')"
                     >
                       <span class="price-label">Subscribe & Save 20%</span>
-                      <span class="price-amount">$44</span>
+                      <span class="price-amount"
+                        >$44<!-- {{ product.selected_or_first_available_variant.price | times: 0.8 | money }} --></span
+                      >
                     </button>
                   </div>
-                  <!-- {% form 'product' %} -->
-                  <button class="btn-primary" onclick="shopNow()">
+                  <!-- <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> -->
+                  <!-- <input type="hidden" name="quantity" value="1"> -->
+                  <button class="btn-primary" type="submit">
                     SHOP NOW<!-- {{ 'general.shop_now' | t }} -->
                   </button>
+                  <!-- {% else %} -->
+                  <!-- <button class="btn-primary" disabled>Sold Out</button> -->
+                  <!-- {% endif %} -->
                   <!-- {% endform %} -->
                 </div>
               </div>
@@ -485,11 +495,41 @@
     {% schema %}
     {
       "name": "Product Landing",
+      "class": "product-landing-section",
       "settings": [
+        {
+          "type": "product",
+          "id": "featured_product",
+          "label": "Featured Product"
+        },
         {
           "type": "text",
           "id": "hero_title",
-          "label": "Hero Title"
+          "label": "Hero Title",
+          "default": "Rest, relieve, recover, relax, repeat."
+        },
+        {
+          "type": "textarea",
+          "id": "hero_description",
+          "label": "Hero Description",
+          "default": "An all-natural solution that can help relieve aches, regulate mood, and get a better night's sleep."
+        },
+        {
+          "type": "number",
+          "id": "subscription_discount",
+          "label": "Subscription Discount (%)",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "show_reviews",
+          "label": "Show Customer Reviews",
+          "default": true
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product Landing"
         }
       ]
     }
