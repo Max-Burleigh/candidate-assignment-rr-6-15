@@ -109,7 +109,7 @@
   font-weight: 400;
   line-height: 29px;
   color: var(--black);
-  width: 343px;
+  max-width: 343px;
   text-rendering: optimizeLegibility;
 }
 
@@ -275,7 +275,7 @@
 }
 
 .product-description {
-  width: 416px;
+  max-width: 416px;
   font-size: 19px;
   line-height: 29px;
   color: var(--black);
