@@ -9,11 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 /* Typography & Font Rendering */
 body {
   font-family: "Poppins", sans-serif;
@@ -33,30 +28,6 @@ body {
 
 *:focus:not(:focus-visible) {
   outline: none;
-}
-
-/* Media Elements */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Form Elements */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
 }
 
 /* Print Styles */
