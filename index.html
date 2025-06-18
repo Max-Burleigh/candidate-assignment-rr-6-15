@@ -42,6 +42,13 @@
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
 
+    <!-- Slick CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+
     <!-- GA4 Placeholder (commented) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -288,11 +295,18 @@
 
       <!-- Scrolling Banner -->
       <div class="scrolling-banner">
-        <div class="scrolling-content">
-          <span>60 Day Money-Back</span>
-          <span>Subscribe & Save</span>
-          <span>Free Shipping<!-- {{ 'product.free_shipping' | t }} --></span>
-        </div>
+        <!-- Original Set -->
+        <div>60 Day Money-Back</div>
+        <div>Subscribe & Save</div>
+        <div>Free Shipping<!-- {{ 'product.free_shipping' | t }} --></div>
+        <!-- Duplicate set to ensure it fills the viewport -->
+        <div>60 Day Money-Back</div>
+        <div>Subscribe & Save</div>
+        <div>Free Shipping<!-- {{ 'product.free_shipping' | t }} --></div>
+        <!-- Third set for very wide screens -->
+        <div>60 Day Money-Back</div>
+        <div>Subscribe & Save</div>
+        <div>Free Shipping<!-- {{ 'product.free_shipping' | t }} --></div>
       </div>
 
       <!-- FAQ Section -->
@@ -489,6 +503,27 @@
       />
     </footer>
 
+    <!-- jQuery & Slick JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(function () {
+        $(".scrolling-banner").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 0,
+          speed: 3000,
+          cssEase: "linear",
+          infinite: true,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          pauseOnFocus: false,
+          variableWidth: true,
+        });
+      });
+    </script>
     <script src="js/script.js"></script>
 
     <!-- 

@@ -286,38 +286,28 @@
 .scrolling-banner {
   background-color: var(--green-primary);
   color: var(--white);
-  padding: 24px 0;
   overflow: hidden;
   white-space: nowrap;
-  position: relative;
-  height: 82px; /* ensures banner retains height despite absolute children */
-  /* Prevent text selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  height: 82px;
 }
 
-.scrolling-content {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  /* Remove any gaps between inline elements */
-  font-size: 0;
-}
-
-.scrolling-content span {
+/* Slick carousel styling */
+.scrolling-banner .slick-slide {
   color: var(--rr-white, #fff);
   font-family: "Century Old Style Std", serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  line-height: 34px;
-  margin-right: 60px;
+  line-height: 82px;
   white-space: nowrap;
-  flex-shrink: 0;
-  /* Reset font-size for the spans */
-  display: inline-block;
+  text-align: center;
+  outline: none;
+  padding: 0 60px; /* 60px gap between items */
+
+  /* --- CONSTANT SPEED FIX --- */
+  box-sizing: content-box; /* Ensures padding is added to the width */
+  min-width: 200px; /* Makes all slides have the same minimum width for constant speed */
+  display: inline-block; /* Helps with alignment and width calculation */
 }
 
 /* FAQ Section */

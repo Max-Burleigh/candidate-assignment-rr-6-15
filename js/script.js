@@ -69,82 +69,7 @@ function shopNow() {
   });
 }
 
-// Enhanced Infinite Scrolling Banner with Advanced Performance
-// Vanilla JS implementation with enterprise-level optimizations
-function initScrollingBanner() {
-  const scrollingContent = document.querySelector(".scrolling-content");
-  if (!scrollingContent) return;
-
-  let resizeTimer = null;
-
-  // Store single set HTML
-  const originalContent = scrollingContent.innerHTML;
-
-  // Enhanced setup function with better calculations
-  function setupBanner() {
-    // Reset content to original
-    scrollingContent.innerHTML = originalContent;
-
-    // First, measure the width of ONE complete set of the 3 items
-    const singleSetWidth = scrollingContent.scrollWidth;
-
-    const viewportWidth = window.innerWidth;
-    let currentCopies = 1;
-
-    // Calculate how many copies we need for seamless scrolling
-    // We need at least enough to fill 2x viewport width + 1 extra for seamless loop
-    const copiesNeeded = Math.ceil((viewportWidth * 2) / singleSetWidth) + 2; // Changed from +1 to +2 for extra buffer
-
-    // Duplicate content to ensure smooth infinite scroll
-    for (let i = 1; i < copiesNeeded; i++) {
-      scrollingContent.innerHTML += originalContent;
-      currentCopies++;
-    }
-
-    // Set initial position to prevent flicker
-    scrollingContent.style.transform = "translateX(0)";
-    scrollingContent.style.webkitTransform = "translateX(0)";
-
-    // Enhanced measurement with RAF for stability
-    requestAnimationFrame(() => {
-      // Set the scroll width to exactly one set's width
-      scrollingContent.style.setProperty(
-        "--scroll-width",
-        `${singleSetWidth}px`
-      );
-
-      // Dynamic speed based on screen size for better UX
-      const baseSpeed = window.innerWidth < 768 ? 60 : 80; // Slower on mobile
-      const duration = singleSetWidth / baseSpeed;
-      scrollingContent.style.setProperty("--scroll-duration", `${duration}s`);
-
-      // Force a reflow to ensure animation starts cleanly
-      scrollingContent.offsetHeight;
-    });
-  }
-
-  // Enhanced responsive handling with debouncing
-  function handleResize() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      setupBanner();
-    }, 250); // Debounce resize events
-  }
-
-  // Event listeners with passive flags for better performance
-  window.addEventListener("resize", handleResize, { passive: true });
-
-  // Initial setup
-  setupBanner();
-
-  // Return cleanup function for potential future use
-  return () => {
-    window.removeEventListener("resize", handleResize);
-    clearTimeout(resizeTimer);
-  };
-}
-
-// Robust Banner Management with Dynamic Responsive Switching
+// Robust Banner Management with Dynamic Responsive Switching (for TOP announcement banner)
 let bannerManager = {
   interval: null,
   currentIndex: 0,
@@ -220,11 +145,10 @@ let bannerManager = {
 };
 
 // Smooth Scroll for Anchor Links
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize infinite scrolling banner
-  initScrollingBanner();
+$(document).ready(function () {
+  // Slick initialization moved to inline script in HTML
 
-  // Initialize robust banner management
+  // Initialize robust banner management for TOP announcement banner
   bannerManager.init();
 
   // Add smooth scrolling to all links
